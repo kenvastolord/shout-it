@@ -1,0 +1,21 @@
+{
+  "name": "root/www",
+  "description": "php 7",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Root\\Www\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Jhon Doe",
+      "email": "jhondoe@example.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
+}
