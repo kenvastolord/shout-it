@@ -1,79 +1,119 @@
-* {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: arial;
-  font-size: 15px;
-  line-height: 1.5em;
-  background: #f4f4f4;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 #container {
-  background: #333333;
-  margin: 50px auto;
-  overflow: auto;
-  width: 60%;
-  min-height: 630px;
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 header h1 {
-  color: #ffffff;
-  font-size: 22px;
-  padding: 15px 0 10px 10px;
-  border-bottom: 1px solid #ffffff;
+  text-align: center;
+  color: #444;
+  font-size: 24px;
 }
 
 #shouts {
-  width: 90%;
-  background: #f4f4f4;
-  height: 400px;
-  margin: 20px auto;
-  overflow: auto;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.shout {
+#shouts ul {
   list-style: none;
-  padding: 8px;
-  border-bottom: 1px #cccccc dotted;
-}
-
-.shout span {
-  color: #aaaaaa;
-}
-
-#input {
-  width: 90%;
-  min-height: 80px;
-  margin: auto;
   padding: 0;
+  margin: 0;
+}
+
+#shouts li.shout {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+#shouts li.shout:last-child {
+  border-bottom: none;
+}
+
+#input form {
+  display: flex;
+  flex-direction: column;
 }
 
 #input input[type="text"] {
-  height: 25px;
-  width: 48%;
-  padding: 3px;
-  margin-bottom: 20px;
-  border: #666666 solid 1px;
-}
-
-#input .shout-btn {
-  padding: 5px;
-  margin-bottom: 30px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
   width: 100%;
-  margin: 10px auto;
+  box-sizing: border-box;
 }
 
-.error {
-  background: red;
-  color: #ffffff;
-  padding: 5px;
-  margin-bottom: 20px;
+.shout-btn {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
+.shout-btn:hover {
+  background-color: #218838;
+}
+
+/* Larger screen styles (e.g., tablets and desktops) */
+@media screen and (min-width: 768px) {
+  #container {
+    max-width: 750px;
+    padding: 30px;
+  }
+
+  header h1 {
+    font-size: 32px;
+  }
+
+  #shouts li.shout {
+    font-size: 16px;
+  }
+
   #input input[type="text"] {
-    width: 98%;
+    font-size: 18px;
+  }
+
+  .shout-btn {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #container {
+    max-width: 960px;
+    padding: 40px;
+  }
+
+  header h1 {
+    font-size: 36px;
+  }
+
+  #shouts li.shout {
+    font-size: 18px;
+  }
+
+  #input input[type="text"] {
+    font-size: 20px;
+  }
+
+  .shout-btn {
+    font-size: 20px;
   }
 }
