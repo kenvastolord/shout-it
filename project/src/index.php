@@ -1,3 +1,5 @@
+<?php require_once './database.php'; ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,13 +16,33 @@
 		</header>
 		<div id="shouts">
 			<ul>
-				<li class="shout"><span>10:15PM - </span>Brad: Hey what are you guys up to? </li>
-				<li class="shout"><span>10:15PM - </span>Brad: Hey what are you guys up to? </li>
-				<li class="shout"><span>10:15PM - </span>Brad: Hey what are you guys up to? </li>
-				<li class="shout"><span>10:15PM - </span>Brad: Hey what are you guys up to? </li>
-				<li class="shout"><span>10:15PM - </span>Brad: Hey what are you guys up to? </li>
-				<li class="shout"><span>10:15PM - </span>Brad: Hey what are you guys up to? </li>
+
+				<?php
+
+				function getShouts($pdo)
+				{
+					$sql = 'SELECT user,message, time from shouts ORDER BY id DESC';
+					$stmt = $pdo->prepare($sql);
+					$stmt->execute();
+					return $stmt->fetchAll(PDO::FETCH_ASSOC);
+				}
+
+				$shouts = getShouts($pdo);
+
+				if (!empty($shouts)) {
+					foreach ($shouts as $shout) {
+						$user = htmlspecialchars($shout['user']);
+						$message = htmlspecialchars($shout['message']);
+						$time = date('g:i A', strtotime($shout['time']));
+
+						echo ' <li class="shout">';
+						echo ' <span>' . $time . '  - </span>';
+						echo $user . ' : ' . $message . ' </li>';
+					}
+				}
+				?>
 			</ul>
+
 		</div>
 		<div id="input">
 			<form method="post" action="process.php">
